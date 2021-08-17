@@ -50,9 +50,9 @@
             <span class="validity"></span>
         </div>
         <div>
-            <label for="salary" >Choose Your Salary: </label>
+            <label for="salary">Choose Your Salary: </label>
             <input type="range" name="salary" min="300000" max="500000" step="100" value="40000">
-            <output class ="salary-output" for="salary">400000</output>
+            <output class="salary-output" for="salary">400000</output>
         </div>
         <div>
             <button>Submit</button>
@@ -60,39 +60,53 @@
     </form>
     <script>
         // validate first name 
-         const name = document.querySelector('#text')
+        const name = document.querySelector('#text')
         const textError = document.querySelector('.text-error')
-        text.addEventListener('input',function () {
+        text.addEventListener('input', function () {
             let nameRegex = RegExp("^[A-Z]{1}[a-z]{2,}$")
             if (nameRegex.test(name.value)) {
                 textError.textContent = ""
             }
-            else{
+            else {
                 textError.textContent = "Name is Incorrect"
-            } 
+            }
         })
-       
+
         // validate Email
         const email = document.querySelector('#email')
         const emailError = document.querySelector('.email-error')
-        email.addEventListener('input', function(){
+        email.addEventListener('input', function () {
             let emailRegex = RegExp("^[0-9a-zA-Z]+([.,+,_,-]{1}[0-9a-zA-Z]+)*@[0-9a-zA-Z]+[.]{1}[a-zA-Z]{2,3}([.]{1}[a-zA-Z]{2})?")
-            if(emailRegex.test(email.value)){
+            if (emailRegex.test(email.value)) {
                 emailError.textContent = ""
             }
-            else{
+            else {
                 emailError.textContent = "Email is Incorrect"
             }
         })
 
-        
+        // validate mobile number 
+        const number = document.querySelector('#tel')
+        const numberError = document.querySelector('.tel-error')
+        number.addEventListener('input', function () {
+            let phoneNumberRegex = RegExp("^[0-9]{2}[ ][0-9]{10}$")
+            if (phoneNumberRegex.test(number.value)) {
+                numberError.textContent = ""
+            }
+            else {
+                numberError.textContent = "Phone number is incorrect"
+            }
+        })
+
+
         const salary = document.querySelector('#salary')
         const output = document.querySelector('.salary-output')
         output.textContent = salary.value
-        salary.addEventListener('input',function(){
+        salary.addEventListener('input', function () {
             output.textContent = salary.value
         })
 
     </script>
-</body>  
+</body>
+
 </html>
